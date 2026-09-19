@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}HackMIT 2026{% endblock %}</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/map/">Map</a>
+        <a href="/sensors/">Sensor Information</a>
+        <a href="/risk/">Risk Evaluation</a>
+    </nav>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>HackMIT 2026</p>
+    </footer>
+
+</body>
+</html>
