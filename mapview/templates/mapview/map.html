@@ -2,21 +2,100 @@
 
 {% block content %}
 
-<div class=""container mt-4>
+<h2>Stream Pollution Map</h2>
 
-    <h2>Stream Sensor Map</h2>
-    <div id="map" style="height:600px;"></div>
-</div>
+<select id="sensorType">
+    <option value="ph">pH</option>
+    <option value="temperature">Temperature</option>
+    <option value="turbidity">Turbidity</option>
+</select>
 
-<link
+<div id="map" style="height:600px;"></div>
 
-{% block title %}
-Map
-{% endblock %}
 
-{% block content %}
+<link rel="stylesheet"
+      href="https://unpkg.com/leaflet/dist/leaflet.css">
 
-<h1>Map</h1>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
+<script>
+
+let map = L.map("map").setView(
+    [33.7756, -84.3963],
+    12
+);
+
+L.tileLayer(
+    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    {
+        maxZoom: 19,
+        attribution: "&copy; OpenStreetMap contributors"
+    }
+).addTo(map);
+
+
+
+
+let riverLayer = L.layerGroup().addTo(map);
+
+
+
+function loadRiverData() {
+
+    fetch("{% url 'river_data.json' %}")
+
+        .then(response => response.json())
+
+        .then(riverData => {
+
+            drawRivers(riverData);
+
+        });
+}
+
+
+
+
+function drawRivers(riverData) {
+
+    riverLayer.clearLayers();
+
+    L.geoJSON(riverData, {
+
+        style: function(feature) {
+
+            return {
+                color: getColor(feature.properties.pollution),
+                weight: 6
+            };
+
+        }
+
+    }).addTo(riverLayer);
+}
+
+
+
+function getColor(value) {
+
+    if (value < 5) {
+        return "green";
+    }
+
+    if (value < 10) {
+        return "yellow";
+    }
+
+    if (value < 20) {
+        return "orange";
+    }
+
+    return "red";
+}
+
+
+loadRiverData();
+
+</script>
 
 {% endblock %}
