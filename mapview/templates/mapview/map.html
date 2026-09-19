@@ -42,7 +42,7 @@ let riverLayer = L.layerGroup().addTo(map);
 
 function loadRiverData() {
 
-    fetch("{% url 'river_data.json' %}")
+    fetch("{% url 'sensor_data.json' %}")
 
         .then(response => response.json())
 

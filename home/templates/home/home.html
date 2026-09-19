@@ -1,26 +1,90 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %}Home{% endblock %}
+{% block body_class %}page--editorial{% endblock %}
 
 {% block content %}
 
-<h1>The Problem</h1>
-<p>Acid Mine Drainage (AMD) affects approximately 12,400 miles of waterways in the United States, with 90% of it originating in abandoned mines (and especially coal mines). The US Forest service has described AMD as “the largest environmental problem facing the U.S. mining industry” This affliction of waterways occurs when toxic byproducts from mining operations, particularly sulfide minerals like marcasite (FeS2), galena (PbS, or lead-sulfate), and chalcopyrite (CuFeS2), build up. AMD can also dissolve heavy metal ions such as iron, manganese, and aluminum, along with hydrogen ions, which make the water severely toxic to living organisms and extremely acidic (sometimes even reducing pH to the 2.5-4 range, around the same as human stomach acid). This issue is only made worse when nearby industrial activities such as fracking mix further pollutants into the water, such as polychlorinated biphenyls (PCBs), strontium, barium, lithium, and radioactive compounds.</p>
-<img
-    src = "{{ url_for('static', filename='images/AMD.png') }}"
-    alt = "A stream stained orange by acid mine drainage" >
-<p>These pollutants are not simply innocuous chemicals, but rather have very real, sinister impacts on nearby communities. Symptoms including rates of cancer and birth defects, skin sores, teeth decay, rashes, and blisters are seen in areas near mines and mountaintop removal sites which leech these chemicals into the waterways. Nearby wildlife (fish, insects, and any animal that drinks from the water) are also severely harmed by these toxins, leading to a decrease in biodiversity and food supply in these regions. Further, bioaccumulation means that humans that consume fish from these waters receive a dose of the same toxins, allowing the problem to spread further beyond just the immediate area. Industries including fishing, agriculture, and tourism suffer, leading to economic decline as well. </p>
-<p>For some, these realities are a far-away problem, but, in West Virginia, they impact our daily lives. Pollutants infiltrate rivers including the Monongahela, Cheat, Stony, Black Water, Middle Fork, West Fork, Paint Creek, Guyandotte, Tug Fork, and Tygart, all key regions for recreation, fishing, and local water supply, causing unprecedented harm to aquatic ecosystems and making the water unusable for humans and harming the protected natural beauty of state parks. Neighboring states such as Kentucky, Ohio, Pennsylvania, and Virginia also face similar risks. </p>
-<img 
-    src = "{{ url_for('static', filename='images/map.png') }}"
-    alt = "A map of WV and surrounding states" >
-<p>The issue is not natural reclamation, solutions to acid mine drainage are well-known. Treatment facilities, although expensive, are capable of neutralizing the pH and extracting the heavy metal ions and proper waste management techniques can prevent the drainage from affecting waterways. The larger issue is a lack of easy access to the data and information necessary to track acid mine drainage, identify sources and affected areas, and as a result, an inability to make any entity take responsibility for its clean-up. Our solution creates an accessible, inexpensive, and accurate dashboard to track acid mine drainage, and uses an AI model to predict where and what solutions are needed. </p>
-<p>Sources: 
+<section class="hero wrap">
+  <h1 class="display">Acid mine<br>drainage</h1>
+  <p class="lede">The US Forest Service has described it as &ldquo;the largest
+  environmental problem facing the U.S. mining industry.&rdquo;</p>
+</section>
+
+<section class="block block--brand">
+  <div class="wrap">
+    <div class="bigstat">
+      <span class="bigstat__value">12,400</span>
+      <span class="bigstat__label">miles of US waterways affected &mdash; 90% of it
+      draining out of mines that were abandoned long ago.</span>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap--prose prose">
+    <p class="eyebrow">The problem</p>
+    <p>Acid Mine Drainage (AMD) affects approximately 12,400 miles of waterways in the United States, with 90% of it originating in abandoned mines (and especially coal mines). The US Forest service has described AMD as “the largest environmental problem facing the U.S. mining industry” This affliction of waterways occurs when toxic byproducts from mining operations, particularly sulfide minerals like marcasite (FeS2), galena (PbS, or lead-sulfate), and chalcopyrite (CuFeS2), build up. AMD can also dissolve heavy metal ions such as iron, manganese, and aluminum, along with hydrogen ions, which make the water severely toxic to living organisms and extremely acidic (sometimes even reducing pH to the 2.5-4 range, around the same as human stomach acid). This issue is only made worse when nearby industrial activities such as fracking mix further pollutants into the water, such as polychlorinated biphenyls (PCBs), strontium, barium, lithium, and radioactive compounds.</p>
+  </div>
+  <div class="wrap">
+    <img src="{% static 'images/AMD.png' %}"
+         alt="A stream stained orange by acid mine drainage">
+  </div>
+</section>
+
+<section class="block block--stain">
+  <div class="wrap">
+    <div class="bigstat">
+      <span class="bigstat__value">pH 2.5</span>
+      <span class="bigstat__label">At its worst, affected water is about as acidic as
+      human stomach acid.</span>
+    </div>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap--prose prose">
+    <h2>It reaches people</h2>
+    <p>These pollutants are not simply innocuous chemicals, but rather have very real, sinister impacts on nearby communities. Symptoms including rates of cancer and birth defects, skin sores, teeth decay, rashes, and blisters are seen in areas near mines and mountaintop removal sites which leech these chemicals into the waterways. Nearby wildlife (fish, insects, and any animal that drinks from the water) are also severely harmed by these toxins, leading to a decrease in biodiversity and food supply in these regions. Further, bioaccumulation means that humans that consume fish from these waters receive a dose of the same toxins, allowing the problem to spread further beyond just the immediate area. Industries including fishing, agriculture, and tourism suffer, leading to economic decline as well.</p>
+
+    <h2>And it is happening here</h2>
+    <p>For some, these realities are a far-away problem, but, in West Virginia, they impact our daily lives. Pollutants infiltrate rivers including the Monongahela, Cheat, Stony, Black Water, Middle Fork, West Fork, Paint Creek, Guyandotte, Tug Fork, and Tygart, all key regions for recreation, fishing, and local water supply, causing unprecedented harm to aquatic ecosystems and making the water unusable for humans and harming the protected natural beauty of state parks. Neighboring states such as Kentucky, Ohio, Pennsylvania, and Virginia also face similar risks.</p>
+  </div>
+  <div class="wrap">
+    <img src="{% static 'images/map.png' %}"
+         alt="A map of West Virginia and surrounding states">
+  </div>
+</section>
+
+<section class="block block--tint">
+  <div class="wrap--prose prose">
+    <h2>Why we built this</h2>
+    <p>The issue is not natural reclamation, solutions to acid mine drainage are well-known. Treatment facilities, although expensive, are capable of neutralizing the pH and extracting the heavy metal ions and proper waste management techniques can prevent the drainage from affecting waterways. The larger issue is a lack of easy access to the data and information necessary to track acid mine drainage, identify sources and affected areas, and as a result, an inability to make any entity take responsibility for its clean-up. Our solution creates an accessible, inexpensive, and accurate dashboard to track acid mine drainage, and uses an AI model to predict where and what solutions are needed.</p>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <p class="eyebrow">See the data</p>
+    <div class="linkcards linkcards--3">
+      <a class="linkcard" href="{% url 'map' %}">
+        <h3>Live map</h3><p>pH and conductivity across the region.</p></a>
+      <a class="linkcard" href="{% url 'sensors' %}">
+        <h3>Sensor readings</h3><p>Every site, every measurement.</p></a>
+      <a class="linkcard" href="{% url 'risk' %}">
+        <h3>Am I at risk?</h3><p>Check a location near you.</p></a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap--prose">
+  <p class="sources">Sources: 
 https://www.epa.gov/sites/default/files/2015-09/documents/amd.pdf,
 https://extension.wvu.edu/natural-resources/acid-mine-drainage,
 https://www.usgs.gov/mission-areas/water-resources/science/mine-drainage,
 https://jointherivercoalition.org/acid-mine-drainage-effects-unraveling-the-environmental-consequences/,
-https://www.usgs.gov/publications/acid-mine-drainage
-</p>
+https://www.usgs.gov/publications/acid-mine-drainage</p>
+</section>
 
 {% endblock %}
