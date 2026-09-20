@@ -1,0 +1,1725 @@
+[
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54077",
+      "name": "Preston",
+      "state": "WV",
+      "severity": 94.0,
+      "impaired_miles": 138.0,
+      "basis": "Cheat River, Muddy Creek; legacy deep-mine discharges"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54093",
+      "name": "Tucker",
+      "state": "WV",
+      "severity": 92.0,
+      "impaired_miles": 96.0,
+      "basis": "Blackwater River, North Fork Blackwater"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54061",
+      "name": "Monongalia",
+      "state": "WV",
+      "severity": 88.0,
+      "impaired_miles": 112.0,
+      "basis": "Deckers Creek, Monongahela River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54049",
+      "name": "Marion",
+      "state": "WV",
+      "severity": 84.0,
+      "impaired_miles": 104.0,
+      "basis": "Monongahela River, Buffalo Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54001",
+      "name": "Barbour",
+      "state": "WV",
+      "severity": 80.0,
+      "impaired_miles": 88.0,
+      "basis": "Tygart Valley River, Middle Fork River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54033",
+      "name": "Harrison",
+      "state": "WV",
+      "severity": 78.0,
+      "impaired_miles": 94.0,
+      "basis": "West Fork River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54091",
+      "name": "Taylor",
+      "state": "WV",
+      "severity": 76.0,
+      "impaired_miles": 71.0,
+      "basis": "Tygart Valley River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54023",
+      "name": "Grant",
+      "state": "WV",
+      "severity": 74.0,
+      "impaired_miles": 63.0,
+      "basis": "North Branch Potomac River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54083",
+      "name": "Randolph",
+      "state": "WV",
+      "severity": 72.0,
+      "impaired_miles": 80.0,
+      "basis": "Tygart Valley headwaters, Middle Fork"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54057",
+      "name": "Mineral",
+      "state": "WV",
+      "severity": 70.0,
+      "impaired_miles": 58.0,
+      "basis": "North Branch Potomac River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54097",
+      "name": "Upshur",
+      "state": "WV",
+      "severity": 58.0,
+      "impaired_miles": 47.0,
+      "basis": "Buckhannon River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54103",
+      "name": "Wetzel",
+      "state": "WV",
+      "severity": 52.0,
+      "impaired_miles": 39.0,
+      "basis": "Fishing Creek; northern panhandle mining"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54051",
+      "name": "Marshall",
+      "state": "WV",
+      "severity": 50.0,
+      "impaired_miles": 36.0,
+      "basis": "Ohio River tributaries"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54041",
+      "name": "Lewis",
+      "state": "WV",
+      "severity": 48.0,
+      "impaired_miles": 34.0,
+      "basis": "West Fork River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54069",
+      "name": "Ohio",
+      "state": "WV",
+      "severity": 47.0,
+      "impaired_miles": 28.0,
+      "basis": "Wheeling Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54009",
+      "name": "Brooke",
+      "state": "WV",
+      "severity": 45.0,
+      "impaired_miles": 24.0,
+      "basis": "Ohio River tributaries"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54029",
+      "name": "Hancock",
+      "state": "WV",
+      "severity": 42.0,
+      "impaired_miles": 19.0,
+      "basis": "Ohio River tributaries"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54019",
+      "name": "Fayette",
+      "state": "WV",
+      "severity": 83.0,
+      "impaired_miles": 121.0,
+      "basis": "Paint Creek, Loup Creek, New River Gorge"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54047",
+      "name": "McDowell",
+      "state": "WV",
+      "severity": 82.0,
+      "impaired_miles": 116.0,
+      "basis": "Tug Fork"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54005",
+      "name": "Boone",
+      "state": "WV",
+      "severity": 81.0,
+      "impaired_miles": 108.0,
+      "basis": "Coal River, Little Coal River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54059",
+      "name": "Mingo",
+      "state": "WV",
+      "severity": 80.0,
+      "impaired_miles": 102.0,
+      "basis": "Tug Fork"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54045",
+      "name": "Logan",
+      "state": "WV",
+      "severity": 79.0,
+      "impaired_miles": 99.0,
+      "basis": "Guyandotte River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54081",
+      "name": "Raleigh",
+      "state": "WV",
+      "severity": 77.0,
+      "impaired_miles": 92.0,
+      "basis": "Coal River, Paint Creek headwaters"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54039",
+      "name": "Kanawha",
+      "state": "WV",
+      "severity": 76.0,
+      "impaired_miles": 97.0,
+      "basis": "Paint Creek, Kanawha River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54109",
+      "name": "Wyoming",
+      "state": "WV",
+      "severity": 75.0,
+      "impaired_miles": 84.0,
+      "basis": "Guyandotte River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54067",
+      "name": "Nicholas",
+      "state": "WV",
+      "severity": 55.0,
+      "impaired_miles": 42.0,
+      "basis": "Gauley River tributaries"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54055",
+      "name": "Mercer",
+      "state": "WV",
+      "severity": 54.0,
+      "impaired_miles": 38.0,
+      "basis": "Bluestone River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54099",
+      "name": "Wayne",
+      "state": "WV",
+      "severity": 51.0,
+      "impaired_miles": 33.0,
+      "basis": "Twelvepole Creek, lower Tug Fork"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54043",
+      "name": "Lincoln",
+      "state": "WV",
+      "severity": 49.0,
+      "impaired_miles": 31.0,
+      "basis": "Mud River, Guyandotte River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54015",
+      "name": "Clay",
+      "state": "WV",
+      "severity": 46.0,
+      "impaired_miles": 22.0,
+      "basis": "Elk River tributaries"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54101",
+      "name": "Webster",
+      "state": "WV",
+      "severity": 44.0,
+      "impaired_miles": 24.0,
+      "basis": "Elk River, Gauley River headwaters"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54007",
+      "name": "Braxton",
+      "state": "WV",
+      "severity": 41.0,
+      "impaired_miles": 18.0,
+      "basis": "Elk River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54011",
+      "name": "Cabell",
+      "state": "WV",
+      "severity": 40.0,
+      "impaired_miles": 16.0,
+      "basis": "Guyandotte River mouth, Ohio River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54089",
+      "name": "Summers",
+      "state": "WV",
+      "severity": 38.0,
+      "impaired_miles": 12.0,
+      "basis": "Greenbrier and New River confluence"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54079",
+      "name": "Putnam",
+      "state": "WV",
+      "severity": 36.0,
+      "impaired_miles": 11.0,
+      "basis": "Kanawha River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54095",
+      "name": "Tyler",
+      "state": "WV",
+      "severity": 35.0,
+      "impaired_miles": 13.0,
+      "basis": "Middle Island Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54025",
+      "name": "Greenbrier",
+      "state": "WV",
+      "severity": 34.0,
+      "impaired_miles": 9.0,
+      "basis": "Greenbrier River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54017",
+      "name": "Doddridge",
+      "state": "WV",
+      "severity": 33.0,
+      "impaired_miles": 12.0,
+      "basis": "Middle Island Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54053",
+      "name": "Mason",
+      "state": "WV",
+      "severity": 32.0,
+      "impaired_miles": 8.0,
+      "basis": "Ohio River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54021",
+      "name": "Gilmer",
+      "state": "WV",
+      "severity": 30.0,
+      "impaired_miles": 9.0,
+      "basis": "Little Kanawha River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54087",
+      "name": "Roane",
+      "state": "WV",
+      "severity": 28.0,
+      "impaired_miles": 7.0,
+      "basis": "Little Kanawha River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54107",
+      "name": "Wood",
+      "state": "WV",
+      "severity": 27.0,
+      "impaired_miles": 6.0,
+      "basis": "Ohio River, Little Kanawha River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54085",
+      "name": "Ritchie",
+      "state": "WV",
+      "severity": 26.0,
+      "impaired_miles": 7.0,
+      "basis": "Hughes River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54035",
+      "name": "Jackson",
+      "state": "WV",
+      "severity": 25.0,
+      "impaired_miles": 5.0,
+      "basis": "Ohio River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54013",
+      "name": "Calhoun",
+      "state": "WV",
+      "severity": 24.0,
+      "impaired_miles": 5.0,
+      "basis": "Little Kanawha River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54073",
+      "name": "Pleasants",
+      "state": "WV",
+      "severity": 22.0,
+      "impaired_miles": 4.0,
+      "basis": "Ohio River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54105",
+      "name": "Wirt",
+      "state": "WV",
+      "severity": 20.0,
+      "impaired_miles": 3.0,
+      "basis": "Little Kanawha River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54063",
+      "name": "Monroe",
+      "state": "WV",
+      "severity": 15.0,
+      "impaired_miles": 2.0,
+      "basis": "Limestone geology; no significant AMD sources"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54075",
+      "name": "Pocahontas",
+      "state": "WV",
+      "severity": 14.0,
+      "impaired_miles": 3.0,
+      "basis": "Greenbrier headwaters; largely forested"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54027",
+      "name": "Hampshire",
+      "state": "WV",
+      "severity": 13.0,
+      "impaired_miles": 2.0,
+      "basis": "Potomac headwaters"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54031",
+      "name": "Hardy",
+      "state": "WV",
+      "severity": 12.0,
+      "impaired_miles": 2.0,
+      "basis": "South Branch Potomac"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54003",
+      "name": "Berkeley",
+      "state": "WV",
+      "severity": 11.0,
+      "impaired_miles": 1.0,
+      "basis": "Opequon Creek; agricultural, not mining"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54071",
+      "name": "Pendleton",
+      "state": "WV",
+      "severity": 10.0,
+      "impaired_miles": 1.0,
+      "basis": "South Branch Potomac; largely forested"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54065",
+      "name": "Morgan",
+      "state": "WV",
+      "severity": 9.0,
+      "impaired_miles": 1.0,
+      "basis": "Cacapon River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "54037",
+      "name": "Jefferson",
+      "state": "WV",
+      "severity": 8.0,
+      "impaired_miles": 1.0,
+      "basis": "Shenandoah and Potomac; no mining"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "42111",
+      "name": "Somerset",
+      "state": "PA",
+      "severity": 88.0,
+      "impaired_miles": 118.0,
+      "basis": "Stonycreek River, Casselman River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "42051",
+      "name": "Fayette",
+      "state": "PA",
+      "severity": 85.0,
+      "impaired_miles": 106.0,
+      "basis": "Youghiogheny River; historic deep-mine discharges"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "42059",
+      "name": "Greene",
+      "state": "PA",
+      "severity": 82.0,
+      "impaired_miles": 97.0,
+      "basis": "Monongahela headwaters, Ten Mile Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "42125",
+      "name": "Washington",
+      "state": "PA",
+      "severity": 70.0,
+      "impaired_miles": 74.0,
+      "basis": "Chartiers Creek, Ten Mile Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "42003",
+      "name": "Allegheny",
+      "state": "PA",
+      "severity": 48.0,
+      "impaired_miles": 31.0,
+      "basis": "Monongahela and Youghiogheny confluence"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "42009",
+      "name": "Bedford",
+      "state": "PA",
+      "severity": 45.0,
+      "impaired_miles": 27.0,
+      "basis": "Raystown Branch Juniata"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "42019",
+      "name": "Butler",
+      "state": "PA",
+      "severity": 42.0,
+      "impaired_miles": 24.0,
+      "basis": "Connoquenessing Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "42007",
+      "name": "Beaver",
+      "state": "PA",
+      "severity": 40.0,
+      "impaired_miles": 21.0,
+      "basis": "Beaver River, Ohio River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "42073",
+      "name": "Lawrence",
+      "state": "PA",
+      "severity": 35.0,
+      "impaired_miles": 16.0,
+      "basis": "Shenango River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "42057",
+      "name": "Fulton",
+      "state": "PA",
+      "severity": 18.0,
+      "impaired_miles": 3.0,
+      "basis": "Licking Creek; largely agricultural"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "42055",
+      "name": "Franklin",
+      "state": "PA",
+      "severity": 14.0,
+      "impaired_miles": 2.0,
+      "basis": "Conococheague Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "42001",
+      "name": "Adams",
+      "state": "PA",
+      "severity": 8.0,
+      "impaired_miles": 1.0,
+      "basis": "No significant mining"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "24023",
+      "name": "Garrett",
+      "state": "MD",
+      "severity": 86.0,
+      "impaired_miles": 91.0,
+      "basis": "Georges Creek, North Branch Potomac"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "24001",
+      "name": "Allegany",
+      "state": "MD",
+      "severity": 84.0,
+      "impaired_miles": 78.0,
+      "basis": "Georges Creek, Jennings Run"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "24043",
+      "name": "Washington",
+      "state": "MD",
+      "severity": 22.0,
+      "impaired_miles": 4.0,
+      "basis": "Conococheague Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "24021",
+      "name": "Frederick",
+      "state": "MD",
+      "severity": 12.0,
+      "impaired_miles": 2.0,
+      "basis": "Monocacy River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "24013",
+      "name": "Carroll",
+      "state": "MD",
+      "severity": 8.0,
+      "impaired_miles": 1.0,
+      "basis": "No significant mining"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "24031",
+      "name": "Montgomery",
+      "state": "MD",
+      "severity": 5.0,
+      "impaired_miles": 0.0,
+      "basis": "No significant mining"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39009",
+      "name": "Athens",
+      "state": "OH",
+      "severity": 84.0,
+      "impaired_miles": 88.0,
+      "basis": "Sunday Creek, Hocking River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39163",
+      "name": "Vinton",
+      "state": "OH",
+      "severity": 74.0,
+      "impaired_miles": 62.0,
+      "basis": "Raccoon Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39105",
+      "name": "Meigs",
+      "state": "OH",
+      "severity": 72.0,
+      "impaired_miles": 58.0,
+      "basis": "Leading Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39073",
+      "name": "Hocking",
+      "state": "OH",
+      "severity": 70.0,
+      "impaired_miles": 54.0,
+      "basis": "Hocking River, Monday Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39079",
+      "name": "Jackson",
+      "state": "OH",
+      "severity": 68.0,
+      "impaired_miles": 49.0,
+      "basis": "Raccoon Creek, Symmes Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39013",
+      "name": "Belmont",
+      "state": "OH",
+      "severity": 66.0,
+      "impaired_miles": 51.0,
+      "basis": "Captina Creek, Wheeling Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39115",
+      "name": "Morgan",
+      "state": "OH",
+      "severity": 64.0,
+      "impaired_miles": 41.0,
+      "basis": "Muskingum River tributaries"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39081",
+      "name": "Jefferson",
+      "state": "OH",
+      "severity": 64.0,
+      "impaired_miles": 44.0,
+      "basis": "Cross Creek, Yellow Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39067",
+      "name": "Harrison",
+      "state": "OH",
+      "severity": 62.0,
+      "impaired_miles": 38.0,
+      "basis": "Stillwater Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39087",
+      "name": "Lawrence",
+      "state": "OH",
+      "severity": 60.0,
+      "impaired_miles": 36.0,
+      "basis": "Symmes Creek, Ohio River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39157",
+      "name": "Tuscarawas",
+      "state": "OH",
+      "severity": 60.0,
+      "impaired_miles": 39.0,
+      "basis": "Tuscarawas River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39059",
+      "name": "Guernsey",
+      "state": "OH",
+      "severity": 58.0,
+      "impaired_miles": 34.0,
+      "basis": "Wills Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39111",
+      "name": "Monroe",
+      "state": "OH",
+      "severity": 58.0,
+      "impaired_miles": 32.0,
+      "basis": "Captina Creek, Sunfish Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39053",
+      "name": "Gallia",
+      "state": "OH",
+      "severity": 56.0,
+      "impaired_miles": 29.0,
+      "basis": "Raccoon Creek, Ohio River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39121",
+      "name": "Noble",
+      "state": "OH",
+      "severity": 55.0,
+      "impaired_miles": 27.0,
+      "basis": "Duck Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39167",
+      "name": "Washington",
+      "state": "OH",
+      "severity": 52.0,
+      "impaired_miles": 24.0,
+      "basis": "Muskingum River, Ohio River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39019",
+      "name": "Carroll",
+      "state": "OH",
+      "severity": 52.0,
+      "impaired_miles": 23.0,
+      "basis": "Conotton Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39145",
+      "name": "Scioto",
+      "state": "OH",
+      "severity": 50.0,
+      "impaired_miles": 21.0,
+      "basis": "Scioto River, Ohio River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39029",
+      "name": "Columbiana",
+      "state": "OH",
+      "severity": 48.0,
+      "impaired_miles": 19.0,
+      "basis": "Little Beaver Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39151",
+      "name": "Stark",
+      "state": "OH",
+      "severity": 40.0,
+      "impaired_miles": 14.0,
+      "basis": "Nimishillen Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "39099",
+      "name": "Mahoning",
+      "state": "OH",
+      "severity": 38.0,
+      "impaired_miles": 12.0,
+      "basis": "Mahoning River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "21195",
+      "name": "Pike",
+      "state": "KY",
+      "severity": 80.0,
+      "impaired_miles": 94.0,
+      "basis": "Levisa Fork, Tug Fork"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "21159",
+      "name": "Martin",
+      "state": "KY",
+      "severity": 78.0,
+      "impaired_miles": 71.0,
+      "basis": "Tug Fork; 2000 coal slurry release"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "21071",
+      "name": "Floyd",
+      "state": "KY",
+      "severity": 74.0,
+      "impaired_miles": 63.0,
+      "basis": "Levisa Fork"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "21119",
+      "name": "Knott",
+      "state": "KY",
+      "severity": 72.0,
+      "impaired_miles": 57.0,
+      "basis": "North Fork Kentucky River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "21115",
+      "name": "Johnson",
+      "state": "KY",
+      "severity": 66.0,
+      "impaired_miles": 44.0,
+      "basis": "Levisa Fork, Paint Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "21127",
+      "name": "Lawrence",
+      "state": "KY",
+      "severity": 64.0,
+      "impaired_miles": 41.0,
+      "basis": "Big Sandy River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "21153",
+      "name": "Magoffin",
+      "state": "KY",
+      "severity": 62.0,
+      "impaired_miles": 38.0,
+      "basis": "Licking River headwaters"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "21019",
+      "name": "Boyd",
+      "state": "KY",
+      "severity": 58.0,
+      "impaired_miles": 31.0,
+      "basis": "Big Sandy River, Ohio River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "21043",
+      "name": "Carter",
+      "state": "KY",
+      "severity": 48.0,
+      "impaired_miles": 22.0,
+      "basis": "Tygarts Creek, Little Sandy River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "21089",
+      "name": "Greenup",
+      "state": "KY",
+      "severity": 46.0,
+      "impaired_miles": 19.0,
+      "basis": "Tygarts Creek, Ohio River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "21175",
+      "name": "Morgan",
+      "state": "KY",
+      "severity": 44.0,
+      "impaired_miles": 17.0,
+      "basis": "Licking River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "21063",
+      "name": "Elliott",
+      "state": "KY",
+      "severity": 40.0,
+      "impaired_miles": 14.0,
+      "basis": "Little Sandy River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "21205",
+      "name": "Rowan",
+      "state": "KY",
+      "severity": 36.0,
+      "impaired_miles": 11.0,
+      "basis": "Licking River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "21135",
+      "name": "Lewis",
+      "state": "KY",
+      "severity": 30.0,
+      "impaired_miles": 8.0,
+      "basis": "Kinniconick Creek, Ohio River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51027",
+      "name": "Buchanan",
+      "state": "VA",
+      "severity": 80.0,
+      "impaired_miles": 76.0,
+      "basis": "Levisa Fork"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51051",
+      "name": "Dickenson",
+      "state": "VA",
+      "severity": 76.0,
+      "impaired_miles": 64.0,
+      "basis": "Russell Fork, Pound River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51185",
+      "name": "Tazewell",
+      "state": "VA",
+      "severity": 68.0,
+      "impaired_miles": 47.0,
+      "basis": "Clinch River headwaters"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51167",
+      "name": "Russell",
+      "state": "VA",
+      "severity": 62.0,
+      "impaired_miles": 39.0,
+      "basis": "Clinch River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51005",
+      "name": "Alleghany",
+      "state": "VA",
+      "severity": 44.0,
+      "impaired_miles": 18.0,
+      "basis": "Jackson River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51021",
+      "name": "Bland",
+      "state": "VA",
+      "severity": 42.0,
+      "impaired_miles": 14.0,
+      "basis": "Wolf Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51071",
+      "name": "Giles",
+      "state": "VA",
+      "severity": 38.0,
+      "impaired_miles": 11.0,
+      "basis": "New River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51155",
+      "name": "Pulaski",
+      "state": "VA",
+      "severity": 34.0,
+      "impaired_miles": 9.0,
+      "basis": "New River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51121",
+      "name": "Montgomery",
+      "state": "VA",
+      "severity": 30.0,
+      "impaired_miles": 7.0,
+      "basis": "New River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51197",
+      "name": "Wythe",
+      "state": "VA",
+      "severity": 28.0,
+      "impaired_miles": 6.0,
+      "basis": "New River, Reed Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51173",
+      "name": "Smyth",
+      "state": "VA",
+      "severity": 26.0,
+      "impaired_miles": 5.0,
+      "basis": "Middle Fork Holston"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51191",
+      "name": "Washington",
+      "state": "VA",
+      "severity": 24.0,
+      "impaired_miles": 5.0,
+      "basis": "South Fork Holston"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51023",
+      "name": "Botetourt",
+      "state": "VA",
+      "severity": 22.0,
+      "impaired_miles": 4.0,
+      "basis": "James River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51017",
+      "name": "Bath",
+      "state": "VA",
+      "severity": 20.0,
+      "impaired_miles": 3.0,
+      "basis": "Jackson River; largely forested"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51045",
+      "name": "Craig",
+      "state": "VA",
+      "severity": 18.0,
+      "impaired_miles": 2.0,
+      "basis": "Craig Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51163",
+      "name": "Rockbridge",
+      "state": "VA",
+      "severity": 16.0,
+      "impaired_miles": 3.0,
+      "basis": "Maury River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51015",
+      "name": "Augusta",
+      "state": "VA",
+      "severity": 14.0,
+      "impaired_miles": 2.0,
+      "basis": "South River, Shenandoah"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51091",
+      "name": "Highland",
+      "state": "VA",
+      "severity": 12.0,
+      "impaired_miles": 1.0,
+      "basis": "Jackson River headwaters"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51165",
+      "name": "Rockingham",
+      "state": "VA",
+      "severity": 12.0,
+      "impaired_miles": 2.0,
+      "basis": "North River, Shenandoah"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51171",
+      "name": "Shenandoah",
+      "state": "VA",
+      "severity": 10.0,
+      "impaired_miles": 1.0,
+      "basis": "North Fork Shenandoah"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51069",
+      "name": "Frederick",
+      "state": "VA",
+      "severity": 10.0,
+      "impaired_miles": 1.0,
+      "basis": "Opequon Creek"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51139",
+      "name": "Page",
+      "state": "VA",
+      "severity": 8.0,
+      "impaired_miles": 1.0,
+      "basis": "South Fork Shenandoah"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51187",
+      "name": "Warren",
+      "state": "VA",
+      "severity": 8.0,
+      "impaired_miles": 1.0,
+      "basis": "Shenandoah River"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51043",
+      "name": "Clarke",
+      "state": "VA",
+      "severity": 6.0,
+      "impaired_miles": 0.0,
+      "basis": "Shenandoah River; agricultural"
+    }
+  },
+  {
+    "model": "mapview.countyimpact",
+    "fields": {
+      "fips": "51107",
+      "name": "Loudoun",
+      "state": "VA",
+      "severity": 5.0,
+      "impaired_miles": 0.0,
+      "basis": "Potomac River; no mining"
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "North Fork Blackwater River at Thomas",
+      "county_fips": "54093",
+      "latitude": 39.149,
+      "longitude": -79.501,
+      "ph": 3.2,
+      "temperature": 10.6,
+      "dissolved_oxygen": 7.4,
+      "turbidity": 22.7
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "Muddy Creek at Albright",
+      "county_fips": "54077",
+      "latitude": 39.494,
+      "longitude": -79.737,
+      "ph": 3.4,
+      "temperature": 12.8,
+      "dissolved_oxygen": 6.1,
+      "turbidity": 18.4
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "Deckers Creek at Morgantown",
+      "county_fips": "54061",
+      "latitude": 39.627,
+      "longitude": -79.949,
+      "ph": 3.9,
+      "temperature": 14.1,
+      "dissolved_oxygen": 6.8,
+      "turbidity": 12.2
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "North Branch Potomac River at Kitzmiller",
+      "county_fips": "54023",
+      "latitude": 39.39,
+      "longitude": -79.179,
+      "ph": 4.6,
+      "temperature": 12.1,
+      "dissolved_oxygen": 9.0,
+      "turbidity": 10.8
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "Paint Creek near Pratt",
+      "county_fips": "54039",
+      "latitude": 38.183,
+      "longitude": -81.318,
+      "ph": 5.3,
+      "temperature": 17.2,
+      "dissolved_oxygen": 7.2,
+      "turbidity": 16.9
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "Blackwater River at Davis",
+      "county_fips": "54093",
+      "latitude": 39.13,
+      "longitude": -79.467,
+      "ph": 5.4,
+      "temperature": 11.2,
+      "dissolved_oxygen": 8.0,
+      "turbidity": 7.9
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "Cheat River at Rowlesburg",
+      "county_fips": "54077",
+      "latitude": 39.344,
+      "longitude": -79.672,
+      "ph": 5.6,
+      "temperature": 13.9,
+      "dissolved_oxygen": 8.1,
+      "turbidity": 9.3
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "Tygart Valley River at Belington",
+      "county_fips": "54001",
+      "latitude": 39.027,
+      "longitude": -79.939,
+      "ph": 5.9,
+      "temperature": 14.6,
+      "dissolved_oxygen": 8.3,
+      "turbidity": 8.8
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "Cheat River at Parsons",
+      "county_fips": "54093",
+      "latitude": 39.096,
+      "longitude": -79.68,
+      "ph": 6.2,
+      "temperature": 13.4,
+      "dissolved_oxygen": 8.6,
+      "turbidity": 6.1
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "Tug Fork at Williamson",
+      "county_fips": "54059",
+      "latitude": 37.674,
+      "longitude": -82.277,
+      "ph": 6.3,
+      "temperature": 18.1,
+      "dissolved_oxygen": 6.9,
+      "turbidity": 24.3
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "Tygart Valley River at Philippi",
+      "county_fips": "54001",
+      "latitude": 39.152,
+      "longitude": -80.04,
+      "ph": 6.3,
+      "temperature": 15.1,
+      "dissolved_oxygen": 8.4,
+      "turbidity": 7.2
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "West Fork River at Clarksburg",
+      "county_fips": "54033",
+      "latitude": 39.281,
+      "longitude": -80.345,
+      "ph": 6.4,
+      "temperature": 16.2,
+      "dissolved_oxygen": 7.6,
+      "turbidity": 11.5
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "Guyandotte River at Logan",
+      "county_fips": "54045",
+      "latitude": 37.849,
+      "longitude": -81.993,
+      "ph": 6.5,
+      "temperature": 17.9,
+      "dissolved_oxygen": 7.1,
+      "turbidity": 19.6
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "Monongahela River at Fairmont",
+      "county_fips": "54049",
+      "latitude": 39.482,
+      "longitude": -80.142,
+      "ph": 6.6,
+      "temperature": 16.8,
+      "dissolved_oxygen": 7.9,
+      "turbidity": 9.4
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "Buckhannon River at Hall",
+      "county_fips": "54097",
+      "latitude": 39.009,
+      "longitude": -80.119,
+      "ph": 6.8,
+      "temperature": 15.4,
+      "dissolved_oxygen": 8.7,
+      "turbidity": 5.6
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "Coal River at Tornado",
+      "county_fips": "54039",
+      "latitude": 38.326,
+      "longitude": -81.84,
+      "ph": 6.9,
+      "temperature": 18.4,
+      "dissolved_oxygen": 7.4,
+      "turbidity": 13.1
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "New River at Fayette Station",
+      "county_fips": "54019",
+      "latitude": 38.066,
+      "longitude": -81.078,
+      "ph": 7.1,
+      "temperature": 17.5,
+      "dissolved_oxygen": 9.1,
+      "turbidity": 6.4
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "Elk River at Sutton",
+      "county_fips": "54007",
+      "latitude": 38.664,
+      "longitude": -80.706,
+      "ph": 7.2,
+      "temperature": 16.7,
+      "dissolved_oxygen": 8.8,
+      "turbidity": 5.1
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "Greenbrier River at Alderson",
+      "county_fips": "54025",
+      "latitude": 37.725,
+      "longitude": -80.643,
+      "ph": 7.6,
+      "temperature": 18.9,
+      "dissolved_oxygen": 9.3,
+      "turbidity": 4.2
+    }
+  },
+  {
+    "model": "mapview.stream",
+    "fields": {
+      "name": "Cacapon River near Great Cacapon",
+      "county_fips": "54065",
+      "latitude": 39.604,
+      "longitude": -78.302,
+      "ph": 7.8,
+      "temperature": 19.4,
+      "dissolved_oxygen": 9.0,
+      "turbidity": 3.8
+    }
+  }
+]

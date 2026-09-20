@@ -305,12 +305,71 @@ select, input[type="text"], input[type="search"] {
 .toolbar { display:flex; gap: var(--s4); align-items:center; flex-wrap:wrap; margin-bottom: var(--s4); }
 #map { border-radius: var(--r-lg); border: 1px solid var(--line); }
 
-/* 8. UTILITIES ------------------------------------------------------------- */
+/* 8. MAP (/map/) ----------------------------------------------------------- */
+/* #map gets its border/radius in section 7 alongside the other app controls. */
+#map { height: 620px; background: var(--ground-2); }
+
+.toolbar label { font-weight: 600; }
+.map-status { margin-left: auto; font-size: var(--t-sm); }
+
+/* Shown only when a data fetch fails, so a broken map never looks merely empty. */
+.map-error {
+  display: none;
+  background: color-mix(in srgb, var(--critical) 14%, var(--paper));
+  border: 1px solid var(--critical);
+  color: var(--ink);
+  padding: var(--s3) var(--s4);
+  border-radius: var(--r-md);
+  margin-bottom: var(--s4);
+}
+.map-error.is-visible { display: block; }
+
+/* Leaflet controls, themed to match the panels elsewhere in the app. */
+.map-legend {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: var(--s3) var(--s4);
+  color: var(--ink);
+  font-size: var(--t-xs);
+  line-height: 1.5;
+  max-width: 210px;
+}
+.map-legend h4 { margin: 0 0 var(--s2); font-size: var(--t-sm); font-family: var(--sans); }
+.map-legend .legend-row { display: flex; align-items: center; gap: var(--s2); }
+.map-legend i {
+  width: 18px; height: 12px; flex: none;
+  display: inline-block; border: 1px solid var(--line-strong);
+}
+.map-legend .legend-note { margin-top: var(--s2); color: var(--ink-3); }
+
+.leaflet-control-layers, .leaflet-popup-content-wrapper, .leaflet-tooltip {
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--line); border-radius: var(--r-md);
+}
+.leaflet-tooltip::before { display: none; }
+.county-tooltip { font-size: var(--t-xs); line-height: 1.45; }
+.county-tooltip .county-name { font-weight: 700; font-size: var(--t-sm); }
+.county-tooltip .county-basis {
+  display: block; white-space: normal; max-width: 220px; color: var(--ink-3);
+}
+
+/* Leaflet gives each polygon focus on click; the browser then draws a focus ring
+   around the path's bounding box, which reads as a stray rectangle straddling
+   unrelated counties. The tooltip and hover highlight already show what is active. */
+.leaflet-container path.leaflet-interactive:focus { outline: none; }
+
+@media (max-width: 640px) {
+  #map { height: 440px; }
+  .map-status { margin-left: 0; width: 100%; }
+}
+
+/* 9. UTILITIES ------------------------------------------------------------- */
 .muted { color: var(--ink-3); }
 .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
 .visually-hidden { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
 
-/* 9. RESPONSIVE ------------------------------------------------------------ */
+/* 10. RESPONSIVE ------------------------------------------------------------ */
 @media (max-width: 640px) {
   :root { --s8:3.5rem; --s9:5rem; --s7:2.5rem; }
   .site-header__inner { padding: var(--s3) var(--s4); gap: var(--s3); }
