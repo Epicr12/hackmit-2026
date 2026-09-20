@@ -37,12 +37,19 @@ freely. `/map/` is built out; see *Map data* below.
 `/map/` draws a choropleth of West Virginia and its bordering counties, shaded by an AMD
 damage-intensity index, with stream monitoring points on top.
 
-**The severity index is illustrative, not a regulatory dataset.** Scores are derived from
+**All of the numbers are placeholders, not measurements.** Scores were written to match
 the documented AMD-affected watersheds (Cheat, Blackwater, Tygart Valley, Monongahela,
 West Fork, Guyandotte, Tug Fork, Coal, Paint Creek, plus the neighbouring coalfields).
-Swap in real numbers by editing `mapview/fixtures/amd_seed.json` and re-running
-`manage.py seed_amd` — it upserts, so it is safe to re-run. Individual rows are also
-editable in the Django admin.
+The site names, coordinates, county FIPS codes and boundaries are real; the severity
+scores, impaired-mile counts and dissolved-solids readings are invented and no sensor has
+reported them. Swap in real numbers by editing `mapview/fixtures/amd_seed.json` and
+re-running `manage.py seed_amd` — it upserts, so it is safe to re-run. Individual rows are
+also editable in the Django admin.
+
+The sensor network reads **total dissolved solids in ppm, and nothing else**. Clean
+Appalachian streams sit under ~250 ppm, 500 is the secondary drinking-water guideline, and
+AMD-impacted water runs into the thousands; those are the thresholds behind the
+Healthy / Elevated / Serious / Critical badges on the map.
 
 Two pieces of data feed the page:
 
@@ -69,8 +76,9 @@ every West Virginia county, plus any county in KY, OH, PA, VA or MD whose centro
 within 0.65° (~45 miles) of the West Virginia line — 162 counties, 89 KB. Regenerate it
 only if the region needs to change.
 
-To add a sensor, add one entry to `SENSORS` in `mapview/views.py` and one field on
-`Stream`; the dropdown and the API validation are both built from that dict.
+To add a second reading later, add a field on `Stream` and widen
+`mapview/views.py` — right now `sensor_data` serves the one `tds_ppm` value per site, so
+the map needs no metric selector.
 
 
 ## Conventions
@@ -172,8 +180,8 @@ Always keep the text label — colour alone is not accessible.
 
 ```html
 <div class="table-wrap"><table class="table">
-  <thead><tr><th>Site</th><th>pH</th><th>Status</th></tr></thead>
-  <tbody><tr><td>Cheat River</td><td class="num">3.2</td>
+  <thead><tr><th>Site</th><th>Dissolved solids (ppm)</th><th>Status</th></tr></thead>
+  <tbody><tr><td>Cheat River</td><td class="num">2410</td>
     <td><span class="badge badge--critical">Critical</span></td></tr></tbody>
 </table></div>
 
@@ -199,7 +207,7 @@ Use variables, never raw hex — that's what makes dark mode work.
 `--forest` / `--forest-deep` (accent + links) · `--stain` (AMD) ·
 `--sage` `--sky` (**fills only** — both fail as text) ·
 `--good` `--warning` `--serious` `--critical` (+ `--*-text`) ·
-`--acid-1`…`--acid-5` (pH ramp) · spacing `--s1`…`--s9`
+`--acid-1`…`--acid-5` (AMD severity ramp) · spacing `--s1`…`--s9`
 
 Every text colour is contrast-checked at 4.5:1+ in both themes. If you add one,
 check it first.

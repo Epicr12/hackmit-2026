@@ -13,5 +13,5 @@ class CountyImpactAdmin(admin.ModelAdmin):
 
 @admin.register(Stream)
 class StreamAdmin(admin.ModelAdmin):
-    list_display = ("name", "county_fips", "ph", "temperature", "dissolved_oxygen", "turbidity")
+    list_display = ("name", "county_fips", "tds_ppm")
     search_fields = ("name",)

@@ -2,17 +2,19 @@ from django.db import models
 
 
 class Stream(models.Model):
-    """A stream monitoring point with its latest sensor readings."""
+    """A stream monitoring point with its latest sensor reading."""
 
     name = models.CharField(max_length=200)
     county_fips = models.CharField(max_length=5, blank=True)
     latitude = models.FloatField()
     longitude = models.FloatField()
 
-    ph = models.FloatField(null=True, blank=True)
-    temperature = models.FloatField(null=True, blank=True)
-    dissolved_oxygen = models.FloatField(null=True, blank=True)
-    turbidity = models.FloatField(null=True, blank=True)
+    # The sensors read total dissolved solids only, in parts per million.
+    tds_ppm = models.FloatField(
+        null=True, blank=True,
+        verbose_name="dissolved solids (ppm)",
+        help_text="Total dissolved solids in parts per million",
+    )
 
     class Meta:
         ordering = ["name"]

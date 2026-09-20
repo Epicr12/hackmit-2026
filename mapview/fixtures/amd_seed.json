@@ -1469,10 +1469,7 @@
       "county_fips": "54093",
       "latitude": 39.149,
       "longitude": -79.501,
-      "ph": 3.2,
-      "temperature": 10.6,
-      "dissolved_oxygen": 7.4,
-      "turbidity": 22.7
+      "tds_ppm": 2410.0
     }
   },
   {
@@ -1482,10 +1479,7 @@
       "county_fips": "54077",
       "latitude": 39.494,
       "longitude": -79.737,
-      "ph": 3.4,
-      "temperature": 12.8,
-      "dissolved_oxygen": 6.1,
-      "turbidity": 18.4
+      "tds_ppm": 2140.0
     }
   },
   {
@@ -1495,10 +1489,7 @@
       "county_fips": "54061",
       "latitude": 39.627,
       "longitude": -79.949,
-      "ph": 3.9,
-      "temperature": 14.1,
-      "dissolved_oxygen": 6.8,
-      "turbidity": 12.2
+      "tds_ppm": 1860.0
     }
   },
   {
@@ -1508,10 +1499,7 @@
       "county_fips": "54023",
       "latitude": 39.39,
       "longitude": -79.179,
-      "ph": 4.6,
-      "temperature": 12.1,
-      "dissolved_oxygen": 9.0,
-      "turbidity": 10.8
+      "tds_ppm": 1450.0
     }
   },
   {
@@ -1521,10 +1509,7 @@
       "county_fips": "54039",
       "latitude": 38.183,
       "longitude": -81.318,
-      "ph": 5.3,
-      "temperature": 17.2,
-      "dissolved_oxygen": 7.2,
-      "turbidity": 16.9
+      "tds_ppm": 1180.0
     }
   },
   {
@@ -1534,10 +1519,7 @@
       "county_fips": "54093",
       "latitude": 39.13,
       "longitude": -79.467,
-      "ph": 5.4,
-      "temperature": 11.2,
-      "dissolved_oxygen": 8.0,
-      "turbidity": 7.9
+      "tds_ppm": 780.0
     }
   },
   {
@@ -1547,10 +1529,7 @@
       "county_fips": "54077",
       "latitude": 39.344,
       "longitude": -79.672,
-      "ph": 5.6,
-      "temperature": 13.9,
-      "dissolved_oxygen": 8.1,
-      "turbidity": 9.3
+      "tds_ppm": 690.0
     }
   },
   {
@@ -1560,10 +1539,7 @@
       "county_fips": "54001",
       "latitude": 39.027,
       "longitude": -79.939,
-      "ph": 5.9,
-      "temperature": 14.6,
-      "dissolved_oxygen": 8.3,
-      "turbidity": 8.8
+      "tds_ppm": 640.0
     }
   },
   {
@@ -1573,10 +1549,7 @@
       "county_fips": "54093",
       "latitude": 39.096,
       "longitude": -79.68,
-      "ph": 6.2,
-      "temperature": 13.4,
-      "dissolved_oxygen": 8.6,
-      "turbidity": 6.1
+      "tds_ppm": 430.0
     }
   },
   {
@@ -1586,10 +1559,7 @@
       "county_fips": "54059",
       "latitude": 37.674,
       "longitude": -82.277,
-      "ph": 6.3,
-      "temperature": 18.1,
-      "dissolved_oxygen": 6.9,
-      "turbidity": 24.3
+      "tds_ppm": 615.0
     }
   },
   {
@@ -1599,10 +1569,7 @@
       "county_fips": "54001",
       "latitude": 39.152,
       "longitude": -80.04,
-      "ph": 6.3,
-      "temperature": 15.1,
-      "dissolved_oxygen": 8.4,
-      "turbidity": 7.2
+      "tds_ppm": 470.0
     }
   },
   {
@@ -1612,10 +1579,7 @@
       "county_fips": "54033",
       "latitude": 39.281,
       "longitude": -80.345,
-      "ph": 6.4,
-      "temperature": 16.2,
-      "dissolved_oxygen": 7.6,
-      "turbidity": 11.5
+      "tds_ppm": 545.0
     }
   },
   {
@@ -1625,10 +1589,7 @@
       "county_fips": "54045",
       "latitude": 37.849,
       "longitude": -81.993,
-      "ph": 6.5,
-      "temperature": 17.9,
-      "dissolved_oxygen": 7.1,
-      "turbidity": 19.6
+      "tds_ppm": 580.0
     }
   },
   {
@@ -1638,10 +1599,7 @@
       "county_fips": "54049",
       "latitude": 39.482,
       "longitude": -80.142,
-      "ph": 6.6,
-      "temperature": 16.8,
-      "dissolved_oxygen": 7.9,
-      "turbidity": 9.4
+      "tds_ppm": 510.0
     }
   },
   {
@@ -1651,10 +1609,7 @@
       "county_fips": "54097",
       "latitude": 39.009,
       "longitude": -80.119,
-      "ph": 6.8,
-      "temperature": 15.4,
-      "dissolved_oxygen": 8.7,
-      "turbidity": 5.6
+      "tds_ppm": 300.0
     }
   },
   {
@@ -1664,10 +1619,7 @@
       "county_fips": "54039",
       "latitude": 38.326,
       "longitude": -81.84,
-      "ph": 6.9,
-      "temperature": 18.4,
-      "dissolved_oxygen": 7.4,
-      "turbidity": 13.1
+      "tds_ppm": 350.0
     }
   },
   {
@@ -1677,10 +1629,7 @@
       "county_fips": "54019",
       "latitude": 38.066,
       "longitude": -81.078,
-      "ph": 7.1,
-      "temperature": 17.5,
-      "dissolved_oxygen": 9.1,
-      "turbidity": 6.4
+      "tds_ppm": 180.0
     }
   },
   {
@@ -1690,10 +1639,7 @@
       "county_fips": "54007",
       "latitude": 38.664,
       "longitude": -80.706,
-      "ph": 7.2,
-      "temperature": 16.7,
-      "dissolved_oxygen": 8.8,
-      "turbidity": 5.1
+      "tds_ppm": 150.0
     }
   },
   {
@@ -1703,10 +1649,7 @@
       "county_fips": "54025",
       "latitude": 37.725,
       "longitude": -80.643,
-      "ph": 7.6,
-      "temperature": 18.9,
-      "dissolved_oxygen": 9.3,
-      "turbidity": 4.2
+      "tds_ppm": 120.0
     }
   },
   {
@@ -1716,10 +1659,7 @@
       "county_fips": "54065",
       "latitude": 39.604,
       "longitude": -78.302,
-      "ph": 7.8,
-      "temperature": 19.4,
-      "dissolved_oxygen": 9.0,
-      "turbidity": 3.8
+      "tds_ppm": 95.0
     }
   }
 ]
