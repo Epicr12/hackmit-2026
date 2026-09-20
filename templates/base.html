@@ -3,23 +3,41 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% block title %}AMD Tracker{% endblock %} — AMD Tracker</title>
+  <meta name="description" content="Tracking acid mine drainage in West Virginia and Appalachia.">
+  <title>{% block title %}AMD Monitor{% endblock %} — AMD Monitor</title>
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  {% block extra_head %}{% endblock %}
 </head>
-<body>
-  <nav>
-    <a href="{% url 'home' %}">Home</a>
-    <a href="{% url 'sensors' %}">Sensors</a>
-    <a href="{% url 'map' %}">Map</a>
-    <a href="{% url 'risk' %}">Am I at risk?</a>
-  </nav>
+<body class="{% block body_class %}page--app{% endblock %}">
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <main>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand" href="{% url 'home' %}">AMD Monitor</a>
+      <nav class="nav" aria-label="Main">
+        {% url 'home' as u_home %}
+        {% url 'sensors' as u_sensors %}
+        {% url 'map' as u_map %}
+        {% url 'risk' as u_risk %}
+        <a href="{{ u_home }}"    {% if request.path == u_home %}aria-current="page"{% endif %}>Home</a>
+        <a href="{{ u_sensors }}" {% if request.path == u_sensors %}aria-current="page"{% endif %}>Sensors</a>
+        <a href="{{ u_map }}"     {% if request.path == u_map %}aria-current="page"{% endif %}>Map</a>
+        <a href="{{ u_risk }}"    {% if request.path == u_risk %}aria-current="page"{% endif %}>Am I at risk?</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
     {% block content %}{% endblock %}
   </main>
 
-  <footer>
-    <p>AMD Tracker — West Virginia &amp; Appalachia</p>
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>AMD Monitor — monitoring acid mine drainage in West Virginia &amp; Appalachia.</p>
+      {% block footer_extra %}{% endblock %}
+    </div>
   </footer>
+
+  {% block extra_js %}{% endblock %}
 </body>
 </html>

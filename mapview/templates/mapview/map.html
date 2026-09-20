@@ -1,12 +1,296 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}
-Map
+{% block title %}Map{% endblock %}
+{% block body_class %}page--app{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 {% endblock %}
 
 {% block content %}
 
-<h1>Map</h1>
+<p class="eyebrow">Where it is worst</p>
+<h2>AMD damage intensity</h2>
+<p class="lede">West Virginia and bordering counties, shaded by acid mine drainage impact.</p>
 
+<div id="mapError" class="map-error" role="alert"></div>
 
+<div class="toolbar">
+  <label for="sensorType">Stream readings:</label>
+  <select id="sensorType">
+    {% for sensor in sensors %}
+      <option value="{{ sensor.key }}">{{ sensor.label }}{% if sensor.units %} ({{ sensor.units }}){% endif %}</option>
+    {% endfor %}
+  </select>
+  <span class="map-status muted" id="mapStatus">Loading&hellip;</span>
+</div>
+
+<div id="map"></div>
+
+<p class="caption">
+  <strong>Illustrative severity index &mdash; not a regulatory dataset.</strong>
+  County scores (0&ndash;100) are derived from the documented AMD-affected watersheds of
+  the region &mdash; the Cheat, Blackwater, Tygart Valley, Monongahela, West Fork,
+  Guyandotte, Tug Fork, Coal and Paint Creek basins, plus the neighbouring coalfields of
+  Pennsylvania, Maryland, Ohio, Kentucky and Virginia. Counties with no score are drawn in
+  grey. Stream readings are representative values at real monitoring locations.
+  County boundaries: US Census cartographic boundary files (public domain).
+</p>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  var COUNTY_GEOJSON_URL = "{% static 'geo/wv-region-counties.geojson' %}";
+  var COUNTY_IMPACT_URL = "{% url 'county_impact.json' %}";
+  var SENSOR_DATA_URL = "{% url 'sensor_data.json' %}";
+
+  // Colours come from the design system so the map follows the active theme.
+  // See "Colour tokens" in the README: --acid-1..5 is the severity ramp,
+  // --good/--warning/--serious/--critical the status vocabulary.
+  var css = getComputedStyle(document.documentElement);
+  function token(name, fallback) {
+    return (css.getPropertyValue(name) || "").trim() || fallback;
+  }
+
+  var SEVERITY_BREAKS = [
+    { min: 80, token: "--acid-5", tier: "severe",   range: "80+" },
+    { min: 60, token: "--acid-4", tier: "high",     range: "60–80" },
+    { min: 40, token: "--acid-3", tier: "moderate", range: "40–60" },
+    { min: 20, token: "--acid-2", tier: "low",      range: "20–40" },
+    { min: 0,  token: "--acid-1", tier: "minimal",  range: "0–20" }
+  ];
+  SEVERITY_BREAKS.forEach(function (bucket) {
+    bucket.color = token(bucket.token, "#c74f1a");
+  });
+
+  var NO_DATA_COLOR = token("--line", "#d9d8d4");
+
+  // Status vocabulary, worst first. `invert: true` means a LOW reading is the bad one.
+  var STATUS = [
+    { token: "--critical",   label: "Critical" },
+    { token: "--serious",    label: "Serious" },
+    { token: "--warning",    label: "Elevated" },
+    { token: "--good",       label: "Healthy" }
+  ].map(function (s) { return { color: token(s.token, "#d03b3b"), label: s.label }; });
+
+  var SENSOR_SCALES = {
+    ph:               { stops: [4.5, 5.5, 6.5], invert: true },
+    temperature:      { stops: [16, 18, 20], invert: false },
+    dissolved_oxygen: { stops: [6.5, 7.5, 8.5], invert: true },
+    turbidity:        { stops: [8, 14, 20], invert: false }
+  };
+
+  var statusEl = document.getElementById("mapStatus");
+  var errorEl = document.getElementById("mapError");
+  var sensorSelect = document.getElementById("sensorType");
+
+  function setStatus(text) {
+    statusEl.textContent = text;
+  }
+
+  function showError(message) {
+    errorEl.textContent = message;
+    errorEl.classList.add("is-visible");
+  }
+
+  function getJSON(url) {
+    return fetch(url).then(function (response) {
+      if (!response.ok) {
+        throw new Error(url + " returned HTTP " + response.status);
+      }
+      return response.json();
+    });
+  }
+
+  var map = L.map("map").setView([38.8, -80.2], 7);
+
+  L.tileLayer(
+    "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+    {
+      maxZoom: 16,
+      attribution: "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ"
+    }
+  ).addTo(map);
+
+  var countyLayer = L.geoJSON(null, {
+    style: countyStyle,
+    onEachFeature: bindCounty
+  }).addTo(map);
+
+  var streamLayer = L.layerGroup().addTo(map);
+
+  L.control.layers(
+    null,
+    { "AMD severity by county": countyLayer, "Stream monitoring points": streamLayer },
+    { collapsed: false }
+  ).addTo(map);
+
+  // --- county choropleth ----------------------------------------------------
+
+  var impactByFips = {};
+
+  function severityBucket(severity) {
+    for (var i = 0; i < SEVERITY_BREAKS.length; i++) {
+      if (severity >= SEVERITY_BREAKS[i].min) {
+        return SEVERITY_BREAKS[i];
+      }
+    }
+    return SEVERITY_BREAKS[SEVERITY_BREAKS.length - 1];
+  }
+
+  function countyStyle(feature) {
+    var impact = impactByFips[feature.properties.fips];
+    var hasData = impact && typeof impact.severity === "number";
+    return {
+      fillColor: hasData ? severityBucket(impact.severity).color : NO_DATA_COLOR,
+      fillOpacity: hasData ? 0.8 : 0.35,
+      color: token("--paper", "#ffffff"),
+      weight: 1,
+      opacity: 0.9
+    };
+  }
+
+  function tooltipHTML(feature) {
+    var props = feature.properties;
+    var impact = impactByFips[props.fips];
+    var html = '<div class="county-tooltip">' +
+      '<span class="county-name">' + props.name + " County, " + props.state + "</span><br>";
+
+    if (!impact) {
+      return html + "No AMD assessment</div>";
+    }
+
+    html += "AMD severity: <strong>" + Math.round(impact.severity) + "/100</strong> (" +
+      severityBucket(impact.severity).tier + ")<br>";
+    if (impact.impaired_miles !== null && impact.impaired_miles !== undefined) {
+      html += "Impaired stream miles: " + impact.impaired_miles + "<br>";
+    }
+    if (impact.basis) {
+      html += '<span class="county-basis">' + impact.basis + "</span>";
+    }
+    return html + "</div>";
+  }
+
+  function bindCounty(feature, layer) {
+    layer.bindTooltip(tooltipHTML(feature), { sticky: true });
+
+    layer.on({
+      mouseover: function (event) {
+        event.target.setStyle({ weight: 3, color: token("--ink", "#181818"), fillOpacity: 0.95 });
+        event.target.bringToFront();
+      },
+      mouseout: function (event) {
+        countyLayer.resetStyle(event.target);
+      },
+      click: function (event) {
+        map.fitBounds(event.target.getBounds());
+      }
+    });
+  }
+
+  // --- stream markers -------------------------------------------------------
+
+  function sensorStatus(sensor, value) {
+    var scale = SENSOR_SCALES[sensor];
+    if (!scale) {
+      return STATUS[STATUS.length - 1];
+    }
+    var index = 0;
+    while (index < scale.stops.length && value > scale.stops[index]) {
+      index++;
+    }
+    // `index` counts how many thresholds the value clears; for an inverted
+    // sensor (pH, dissolved oxygen) clearing more thresholds means healthier.
+    return scale.invert ? STATUS[index] : STATUS[STATUS.length - 1 - index];
+  }
+
+  function drawStreams(collection) {
+    streamLayer.clearLayers();
+
+    collection.features.forEach(function (feature) {
+      var props = feature.properties;
+      var coords = feature.geometry.coordinates;
+      var units = props.units ? " " + props.units : "";
+      var status = sensorStatus(props.sensor, props.value);
+
+      L.circleMarker([coords[1], coords[0]], {
+        radius: 7,
+        fillColor: status.color,
+        fillOpacity: 0.95,
+        color: token("--ink", "#181818"),
+        weight: 1.5
+      })
+        .bindPopup(
+          "<strong>" + props.name + "</strong><br>" +
+          props.label + ": " + props.value + units + "<br>" +
+          "Status: " + status.label
+        )
+        .addTo(streamLayer);
+    });
+  }
+
+  function loadStreams() {
+    var sensor = sensorSelect.value;
+    setStatus("Loading " + sensor.replace(/_/g, " ") + "…");
+
+    return getJSON(SENSOR_DATA_URL + "?sensor=" + encodeURIComponent(sensor))
+      .then(function (collection) {
+        drawStreams(collection);
+        setStatus(collection.features.length + " monitoring points");
+      })
+      .catch(function (error) {
+        console.error("stream data failed", error);
+        showError("Could not load stream readings: " + error.message);
+        setStatus("Stream data unavailable");
+      });
+  }
+
+  sensorSelect.addEventListener("change", loadStreams);
+
+  // --- legend ---------------------------------------------------------------
+
+  var legend = L.control({ position: "bottomright" });
+
+  legend.onAdd = function () {
+    var div = L.DomUtil.create("div", "map-legend");
+    var rows = SEVERITY_BREAKS.map(function (bucket) {
+      return '<div class="legend-row"><i style="background:' + bucket.color + '"></i>' +
+        bucket.range + " " + bucket.tier + "</div>";
+    }).join("");
+
+    div.innerHTML =
+      "<h4>AMD severity index</h4>" + rows +
+      '<div class="legend-row"><i style="background:' + NO_DATA_COLOR + '"></i>no data</div>' +
+      '<div class="legend-note">Illustrative index, not a regulatory dataset.</div>';
+    return div;
+  };
+
+  legend.addTo(map);
+
+  // --- boot -----------------------------------------------------------------
+
+  Promise.all([getJSON(COUNTY_IMPACT_URL), getJSON(COUNTY_GEOJSON_URL)])
+    .then(function (results) {
+      impactByFips = results[0].counties || {};
+      countyLayer.addData(results[1]);
+
+      var bounds = countyLayer.getBounds();
+      if (bounds.isValid()) {
+        map.fitBounds(bounds, { padding: [10, 10] });
+      }
+      return loadStreams();
+    })
+    .catch(function (error) {
+      console.error("county data failed", error);
+      showError("Could not load county boundaries or severity scores: " + error.message);
+      setStatus("County data unavailable");
+    });
+}());
+</script>
 {% endblock %}
