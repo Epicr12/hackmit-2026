@@ -1,7 +1,7 @@
 from django.db import models
 
 class Stream(models.Model):
-    name = models.charField(max_length=200)
+    name = models.CharField(max_length=200)
     latitude = models.FloatField()
     longitude = models.FloatField()
 
@@ -10,7 +10,7 @@ class Stream(models.Model):
     dissolved_oxygen = models.FloatField(null=True, blank=True)
     turbidity = models.FloatField(null=True, blank=True)"""
 
-    def __str__(self)
+    def __str__(self):
         return self.name
 
     
