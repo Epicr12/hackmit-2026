@@ -26,11 +26,12 @@ Then open http://127.0.0.1:8000/
 | `/`         | `home`        | `home/templates/home/home.html`            | Keshav |
 | `/sensors/` | `sensor_info` | `sensor_info/templates/sensor_info/sensors.html` | |
 | `/map/`     | `mapview`     | `mapview/templates/mapview/map.html`       | |
-| `/risk/`    | `risk_eval`   | `risk_eval/templates/risk_eval/risk.html`  | |
+| `/risk/`    | `risk_eval`   | `risk_eval/templates/risk_eval/risk.html`  | Flexible JSON risk pipeline + `/risk/api/assess/` |
 | `/admin/`   | Django admin  | —                                          | |
 
-The home, sensors and risk templates are still **placeholders** — overwrite them
-freely. `/map/` is built out; see *Map data* below.
+The home and sensors templates are still **placeholders** — overwrite them
+freely. `/risk/` accepts arbitrary website JSON (pluggable scorers/sources);
+`/map/` is built out; see *Map data* below.
 
 ## Map data
 

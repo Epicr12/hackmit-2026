@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     "home",
     "mapview",
     "sensor_info",
-    "risk_eval",
+    "risk_eval.apps.RiskEvalConfig",
 ]
 
 MIDDLEWARE = [

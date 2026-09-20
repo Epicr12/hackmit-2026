@@ -297,10 +297,24 @@ strong { font-weight: 700; }
 .meter { height: 8px; border-radius: 999px; background: var(--line); overflow: hidden; }
 .meter__fill { height: 100%; background: var(--forest); border-radius: 999px; }
 
-select, input[type="text"], input[type="search"] {
+select, input[type="text"], input[type="search"], textarea {
   font: inherit; padding: var(--s2) var(--s3);
   border: 1px solid var(--line-strong); border-radius: var(--r-md);
   background: var(--paper); color: var(--ink);
+}
+
+/* Risk assessment (/risk/) — payload editor for arbitrary website JSON */
+.risk-form { display: flex; flex-direction: column; gap: var(--s4); }
+.risk-label { font-weight: 600; }
+.risk-payload {
+  width: 100%; min-height: 16rem; resize: vertical;
+  font-family: var(--mono); font-size: var(--t-sm); line-height: 1.45;
+}
+.risk-result { margin-top: var(--s4); }
+.risk-raw {
+  margin-top: var(--s5); padding: var(--s4);
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--r-md); overflow-x: auto; white-space: pre-wrap;
 }
 .toolbar { display:flex; gap: var(--s4); align-items:center; flex-wrap:wrap; margin-bottom: var(--s4); }
 #map { border-radius: var(--r-lg); border: 1px solid var(--line); }
