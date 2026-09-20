@@ -1,4 +1,4 @@
-"""Root URL configuration for the AMD tracker."""
+"""Root URL configuration for the AMD monitor."""
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
