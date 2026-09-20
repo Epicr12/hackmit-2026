@@ -1,5 +1,5 @@
 """
-Django settings for the AMD (acid mine drainage) tracker.
+Django settings for the AMD (acid mine drainage) monitor.
 
 Hackathon config: SQLite, DEBUG on, secret key in the clear. Not deployable as-is.
 """

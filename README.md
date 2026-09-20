@@ -1,4 +1,4 @@
-# AMD Tracker
+# AMD Monitor
 
 Tracking acid mine drainage in West Virginia and Appalachia.
 
@@ -50,8 +50,9 @@ All four page templates are currently **placeholders** — overwrite them freely
 Every page extends `templates/base.html`. Styles live in `static/css/main.css` —
 **don't write page-specific CSS**; add to `main.css` so all pages benefit.
 
-Visual direction: stark and typographic, flat saturated colour on white. Type is
-**Outfit**, self-hosted in `static/fonts/` — no CDN, so it works offline at the demo.
+Visual direction: calm natural editorial — warm bone ground, serif display headings,
+full-bleed archival photography under a dark overlay. Type is **Newsreader** (serif)
++ **Mulish** (sans), self-hosted in `static/fonts/` so it works offline at the demo.
 
 ### Page skeleton
 
@@ -68,30 +69,44 @@ Visual direction: stark and typographic, flat saturated colour on white. Type is
 Third-party CSS goes in `extra_head`, JS in `extra_js` — **not** inline in `content`.
 That keeps everyone out of `base.html` and avoids merge conflicts.
 
-### Layout
+### Photographic hero
 
-```html
-<div class="wrap">...</div>          <!-- full width, max 1240px -->
-<div class="wrap--prose">...</div>   <!-- reading measure, 62ch -->
-
-<section class="block block--brand">  <!-- full-bleed colour band -->
-  <div class="wrap">...</div>
+```django
+<section class="hero-photo"
+         style="--hero-img: url('{% static 'images/hero-river.jpg' %}')">
+  <div class="hero-photo__inner">
+    <p class="eyebrow">West Virginia</p>
+    <h1>Headline</h1>
+    <p class="lede">Supporting sentence.</p>
+    <p class="hero-credit">Photograph: ...</p>
+  </div>
 </section>
 ```
 
-Block variants: `block--tint` (grey), `block--brand` (blue), `block--stain` (orange),
-`block--yellow`. Text colour flips automatically inside each.
+The overlay gradient is tuned so white text clears 4.5:1 **even over the photo's
+brightest area**. If you swap in a lighter photo, re-check it before shipping.
 
-### Display type & big numbers (editorial pages)
+### Layout & blocks
+
+```html
+<div class="wrap">...</div>          <!-- full width, max 1260px -->
+<div class="wrap--prose">...</div>   <!-- reading measure, 66ch -->
+
+<section class="block block--forest"><div class="wrap">...</div></section>
+```
+
+Block variants: `block--tint`, `block--paper`, `block--forest` (text flips to white).
+
+### Editorial pieces
 
 ```html
 <p class="eyebrow">The problem</p>
-<h1 class="display">Acid mine<br>drainage</h1>
-<p class="lede">One sentence that sets the stakes.</p>
+<p class="lede">A sentence that sets the stakes.</p>
+<blockquote class="pullquote">A line worth pulling out.</blockquote>
 
 <div class="bigstat">
-  <span class="bigstat__value">12,400</span>
-  <span class="bigstat__label">miles of US waterways affected.</span>
+  <span class="bigstat__value">12,400 miles</span>
+  <span class="bigstat__label">of US waterways affected.</span>
 </div>
 ```
 
@@ -135,12 +150,12 @@ Always keep the text label — colour alone is not accessible.
 
 Use variables, never raw hex — that's what makes dark mode work.
 
-`--ink` `--ink-2` `--ink-3` · `--ground` `--ground-2` `--line` ·
-`--brand` / `--brand-ink` · `--stain` (fills) / `--stain-text` (text) ·
-`--pop-yellow` `--pop-mint` (block fills only, never text) ·
-`--good` `--warning` `--serious` `--critical` (+ `--*-text` variants) ·
+`--ink` `--ink-2` `--ink-3` · `--ground` `--ground-2` `--paper` `--line` ·
+`--forest` / `--forest-deep` (accent + links) · `--stain` (AMD) ·
+`--sage` `--sky` (**fills only** — both fail as text) ·
+`--good` `--warning` `--serious` `--critical` (+ `--*-text`) ·
 `--acid-1`…`--acid-5` (pH ramp) · spacing `--s1`…`--s9`
 
-Every text colour is contrast-checked at 4.5:1 or better in both themes. If you add
-one, check it first.
+Every text colour is contrast-checked at 4.5:1+ in both themes. If you add one,
+check it first.
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Tracking acid mine drainage in West Virginia and Appalachia.">
-  <title>{% block title %}AMD Tracker{% endblock %} — AMD Tracker</title>
+  <title>{% block title %}AMD Monitor{% endblock %} — AMD Monitor</title>
   <link rel="stylesheet" href="{% static 'css/main.css' %}">
   {% block extra_head %}{% endblock %}
 </head>
@@ -13,7 +13,7 @@
 
   <header class="site-header">
     <div class="site-header__inner">
-      <a class="brand" href="{% url 'home' %}">AMD Tracker</a>
+      <a class="brand" href="{% url 'home' %}">AMD Monitor</a>
       <nav class="nav" aria-label="Main">
         {% url 'home' as u_home %}
         {% url 'sensors' as u_sensors %}
@@ -33,7 +33,7 @@
 
   <footer class="site-footer">
     <div class="site-footer__inner">
-      <p>AMD Tracker — monitoring acid mine drainage in West Virginia &amp; Appalachia.</p>
+      <p>AMD Monitor — monitoring acid mine drainage in West Virginia &amp; Appalachia.</p>
       {% block footer_extra %}{% endblock %}
     </div>
   </footer>
