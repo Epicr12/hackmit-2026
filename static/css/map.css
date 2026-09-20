@@ -1,0 +1,151 @@
+/* Styling for the AMD damage-intensity map (/map/). */
+
+.map-header {
+    max-width: 1100px;
+    margin: 0 auto 16px;
+    color: #e9f3cd;
+}
+
+.map-header h1 {
+    margin-bottom: 4px;
+}
+
+.map-header p {
+    text-align: center;
+    margin: 0;
+}
+
+.map-shell {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Sensor selector sitting above the map. */
+.map-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    background: #e9f3cd;
+    border-radius: 8px 8px 0 0;
+    padding: 12px 16px;
+}
+
+.map-controls label {
+    font-weight: bold;
+    color: #1b1c21;
+}
+
+.map-controls select {
+    font: inherit;
+    padding: 6px 10px;
+    border: 1px solid #337b4a;
+    border-radius: 6px;
+    background: #fff;
+    color: #1b1c21;
+}
+
+.map-controls .map-status {
+    margin-left: auto;
+    font-size: 13px;
+    color: #3d4a36;
+}
+
+#map {
+    height: 620px;
+    border-radius: 0 0 8px 8px;
+    background: #dfe4e8;
+}
+
+/* Shown only when a data fetch fails, so a broken map never looks merely empty. */
+.map-error {
+    display: none;
+    background: #7d1c1c;
+    color: #ffe9e9;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.map-error.is-visible {
+    display: block;
+}
+
+.map-note {
+    max-width: 1100px;
+    margin: 14px auto 0;
+    color: #e9f3cd;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.map-note strong {
+    color: #fff;
+}
+
+/* --- Leaflet controls ----------------------------------------------------- */
+
+.map-legend {
+    background: rgba(255, 255, 255, 0.94);
+    padding: 10px 12px;
+    border-radius: 6px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
+    color: #1b1c21;
+    font-size: 12px;
+    line-height: 1.5;
+    max-width: 210px;
+}
+
+.map-legend h4 {
+    margin: 0 0 6px;
+    font-size: 13px;
+}
+
+.map-legend .legend-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.map-legend i {
+    width: 18px;
+    height: 12px;
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    flex: none;
+}
+
+.map-legend .legend-note {
+    margin-top: 8px;
+    font-size: 11px;
+    color: #55605a;
+}
+
+.county-tooltip {
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.county-tooltip .county-name {
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.county-tooltip .county-basis {
+    color: #55605a;
+    max-width: 220px;
+    display: block;
+    white-space: normal;
+}
+
+@media (max-width: 700px) {
+    #map { height: 440px; }
+    .map-controls .map-status { margin-left: 0; width: 100%; }
+}
+
+/* Leaflet gives each polygon focus on click; Chrome then draws a focus ring around the
+   path's bounding box, which shows up as a blue rectangle straddling unrelated counties.
+   The tooltip and hover highlight already convey which county is active. */
+.leaflet-container path.leaflet-interactive:focus {
+    outline: none;
+}
