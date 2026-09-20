@@ -1,14 +1,14 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #8d68dc;
-    color: #342751;
-    margin: 0;
+    background-color: #337b4a;
+    color: #1b1c21;
+    margin: 50;
 }
 
 /* Main heading */
 h1 {
     font-family: Georgia, serif;
-    color: #1b1c21;
+    color: #e9f3cd;
     font-size: 40px;
     text-align: center;
 }
