@@ -18,6 +18,16 @@ python3 -m venv venv
 
 Then open http://127.0.0.1:8000/
 
+## AMD risk assessment (`/risk/`)
+
+The **Am I at risk?** page takes a location, matches nearby readings from
+`data/amd_sensors.json`, and asks Cursor for a risk assessment.
+
+```bash
+export CURSOR_API_KEY="cursor_..."   # from https://cursor.com/dashboard/integrations
+./venv/bin/python manage.py runserver
+```
+
 ## Pages & owners
 
 | Route       | App           | Template                                  | Owner  |

@@ -1,1 +1,228 @@
-/* Phase 1: shared design tokens go here. */
+/* Shared layout */
+:root {
+  --ink: #1c2418;
+  --muted: #5c6b55;
+  --paper: #f3efe6;
+  --paper-2: #e7efdf;
+  --accent: #2f5d3a;
+  --accent-ink: #f7faf5;
+  --danger: #8b2e1f;
+  --warn: #9a5b14;
+  --ok: #2f5d3a;
+  --line: rgba(28, 36, 24, 0.14);
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+  --font-body: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(47, 93, 58, 0.12), transparent 42%),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.25rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--line);
+  background: rgba(243, 239, 230, 0.85);
+  backdrop-filter: blur(8px);
+}
+
+nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: var(--accent);
+}
+
+main {
+  width: min(920px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 3rem;
+}
+
+footer {
+  width: min(920px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 0 0 2rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+h1,
+h2 {
+  font-family: var(--font-display);
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  margin: 0 0 0.75rem;
+}
+
+h2 {
+  font-size: 1.35rem;
+  margin: 1.75rem 0 0.6rem;
+}
+
+/* Risk page */
+.risk-page {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.risk-lead,
+.risk-summary,
+.risk-hint,
+.risk-disclaimer,
+.risk-meta {
+  color: var(--muted);
+  max-width: 42rem;
+}
+
+.risk-form {
+  display: grid;
+  gap: 0.55rem;
+  max-width: 34rem;
+  margin-top: 0.5rem;
+}
+
+.risk-form label {
+  font-weight: 650;
+}
+
+.risk-form input {
+  width: 100%;
+  padding: 0.85rem 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 0.4rem;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink);
+  font: inherit;
+}
+
+.risk-form button {
+  justify-self: start;
+  margin-top: 0.35rem;
+  padding: 0.8rem 1.2rem;
+  border: 0;
+  border-radius: 0.4rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font: inherit;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.risk-form button:hover {
+  filter: brightness(1.05);
+}
+
+.risk-error {
+  margin: 0;
+  padding: 0.75rem 0.9rem;
+  border-left: 3px solid var(--danger);
+  background: rgba(139, 46, 31, 0.08);
+  color: var(--danger);
+}
+
+.risk-back a {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.risk-eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.risk-badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 0.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.78rem;
+  color: #fff;
+  background: var(--warn);
+}
+
+.risk-badge--low {
+  background: var(--ok);
+}
+
+.risk-badge--moderate {
+  background: var(--warn);
+}
+
+.risk-badge--high,
+.risk-badge--critical {
+  background: var(--danger);
+}
+
+.risk-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.45rem;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.risk-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+
+.risk-table th,
+.risk-table td {
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.risk-table th {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.risk-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.risk-disclaimer {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+li + li {
+  margin-top: 0.35rem;
+}

@@ -1,1 +1,2 @@
 Django==6.1.1
+cursor-sdk>=0.1.0

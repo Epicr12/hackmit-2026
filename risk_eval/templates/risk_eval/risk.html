@@ -4,7 +4,112 @@
 
 {% block content %}
 
-<h1>Am I at risk?</h1>
-<p>Placeholder — location-based risk check.</p>
+<section class="risk-page">
+  {% if mode == "form" %}
+    <h1>Am I at risk?</h1>
+    <p class="risk-lead">
+      Enter a West Virginia city, county, river, or coordinates. We match nearby
+      AMD sensor readings from our dataset and generate a Cursor-powered risk assessment.
+    </p>
+
+    {% if error %}
+      <p class="risk-error" role="alert">{{ error }}</p>
+    {% endif %}
+
+    <form method="post" action="{% url 'risk' %}" class="risk-form">
+      {% csrf_token %}
+      <label for="location">Your location</label>
+      <input
+        id="location"
+        name="location"
+        type="text"
+        required
+        autocomplete="address-level2"
+        placeholder="e.g. Morgantown, Tucker County, or 39.13, -79.47"
+        value="{{ location|default:'' }}"
+      >
+      <button type="submit">Check my risk</button>
+    </form>
+
+    <p class="risk-hint">
+      Examples: Morgantown · Davis · Paint Creek · 37.43, -81.58
+    </p>
+  {% else %}
+    <p class="risk-back"><a href="{% url 'risk' %}">← Check another location</a></p>
+
+    <p class="risk-eyebrow">AMD risk assessment</p>
+    <h1>{{ assessment.headline }}</h1>
+    <p class="risk-meta">
+      For <strong>{{ resolved.label }}</strong>
+      · Risk level:
+      <span class="risk-badge risk-badge--{{ assessment.risk_level }}">
+        {{ assessment.risk_level }}
+      </span>
+      · Confidence: {{ assessment.confidence|default:"medium" }}
+    </p>
+
+    <p class="risk-summary">{{ assessment.summary }}</p>
+
+    {% if assessment.key_factors %}
+      <h2>Key factors</h2>
+      <ul>
+        {% for factor in assessment.key_factors %}
+          <li>{{ factor }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if assessment.recommendations %}
+      <h2>What you can do</h2>
+      <ul>
+        {% for step in assessment.recommendations %}
+          <li>{{ step }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if assessment.affected_waterways %}
+      <h2>Affected waterways</h2>
+      <p>{{ assessment.affected_waterways|join:", " }}</p>
+    {% endif %}
+
+    <h2>Nearby sensor readings used</h2>
+    <div class="risk-table-wrap">
+      <table class="risk-table">
+        <thead>
+          <tr>
+            <th>Site</th>
+            <th>Waterway</th>
+            <th>Dist (km)</th>
+            <th>pH</th>
+            <th>Fe</th>
+            <th>Al</th>
+            <th>Mn</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for sensor in sensors %}
+            <tr>
+              <td>{{ sensor.name }}</td>
+              <td>{{ sensor.waterway }}</td>
+              <td>{{ sensor.distance_km }}</td>
+              <td>{{ sensor.ph }}</td>
+              <td>{{ sensor.iron_mg_l }}</td>
+              <td>{{ sensor.aluminum_mg_l }}</td>
+              <td>{{ sensor.manganese_mg_l }}</td>
+              <td>{{ sensor.status }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <p class="risk-disclaimer">
+      Informational estimate based on project sensor data and a Cursor agent assessment.
+      Not official environmental or health advice.
+    </p>
+  {% endif %}
+</section>
 
 {% endblock %}
