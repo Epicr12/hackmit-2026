@@ -17,24 +17,20 @@
 <div id="mapError" class="map-error" role="alert"></div>
 
 <div class="toolbar">
-  <label for="sensorType">Stream readings:</label>
-  <select id="sensorType">
-    {% for sensor in sensors %}
-      <option value="{{ sensor.key }}">{{ sensor.label }}{% if sensor.units %} ({{ sensor.units }}){% endif %}</option>
-    {% endfor %}
-  </select>
+  <span>Stream readings: <strong>{{ reading_label }} ({{ reading_units }})</strong></span>
   <span class="map-status muted" id="mapStatus">Loading&hellip;</span>
 </div>
 
 <div id="map"></div>
 
 <p class="caption">
-  <strong>Illustrative severity index &mdash; not a regulatory dataset.</strong>
-  County scores (0&ndash;100) are derived from the documented AMD-affected watersheds of
-  the region &mdash; the Cheat, Blackwater, Tygart Valley, Monongahela, West Fork,
-  Guyandotte, Tug Fork, Coal and Paint Creek basins, plus the neighbouring coalfields of
-  Pennsylvania, Maryland, Ohio, Kentucky and Virginia. Counties with no score are drawn in
-  grey. Stream readings are representative values at real monitoring locations.
+  <strong>Sample data &mdash; not measurements.</strong>
+  Both the county scores (0&ndash;100) and the dissolved-solids readings are placeholders,
+  written to match the documented AMD geography of the region &mdash; the Cheat,
+  Blackwater, Tygart Valley, Monongahela, West Fork, Guyandotte, Tug Fork, Coal and Paint
+  Creek basins, plus the neighbouring coalfields of Pennsylvania, Maryland, Ohio, Kentucky
+  and Virginia. The site names and locations are real; the numbers are not, and no sensor
+  has reported them. Counties with no score are drawn in grey.
   County boundaries: US Census cartographic boundary files (public domain).
 </p>
 
@@ -71,7 +67,7 @@
 
   var NO_DATA_COLOR = token("--line", "#d9d8d4");
 
-  // Status vocabulary, worst first. `invert: true` means a LOW reading is the bad one.
+  // Status vocabulary, worst first.
   var STATUS = [
     { token: "--critical",   label: "Critical" },
     { token: "--serious",    label: "Serious" },
@@ -79,16 +75,12 @@
     { token: "--good",       label: "Healthy" }
   ].map(function (s) { return { color: token(s.token, "#d03b3b"), label: s.label }; });
 
-  var SENSOR_SCALES = {
-    ph:               { stops: [4.5, 5.5, 6.5], invert: true },
-    temperature:      { stops: [16, 18, 20], invert: false },
-    dissolved_oxygen: { stops: [6.5, 7.5, 8.5], invert: true },
-    turbidity:        { stops: [8, 14, 20], invert: false }
-  };
+  // Dissolved solids in ppm. Clean Appalachian streams sit under ~250 ppm; 500 is
+  // the secondary drinking-water guideline; AMD-impacted water runs into the thousands.
+  var TDS_STOPS = [250, 500, 1500];
 
   var statusEl = document.getElementById("mapStatus");
   var errorEl = document.getElementById("mapError");
-  var sensorSelect = document.getElementById("sensorType");
 
   function setStatus(text) {
     statusEl.textContent = text;
@@ -196,18 +188,14 @@
 
   // --- stream markers -------------------------------------------------------
 
-  function sensorStatus(sensor, value) {
-    var scale = SENSOR_SCALES[sensor];
-    if (!scale) {
-      return STATUS[STATUS.length - 1];
-    }
+  function readingStatus(value) {
     var index = 0;
-    while (index < scale.stops.length && value > scale.stops[index]) {
+    while (index < TDS_STOPS.length && value > TDS_STOPS[index]) {
       index++;
     }
-    // `index` counts how many thresholds the value clears; for an inverted
-    // sensor (pH, dissolved oxygen) clearing more thresholds means healthier.
-    return scale.invert ? STATUS[index] : STATUS[STATUS.length - 1 - index];
+    // `index` counts how many thresholds the reading clears; more dissolved
+    // solids is worse, and STATUS runs worst-first.
+    return STATUS[STATUS.length - 1 - index];
   }
 
   function drawStreams(collection) {
@@ -217,7 +205,7 @@
       var props = feature.properties;
       var coords = feature.geometry.coordinates;
       var units = props.units ? " " + props.units : "";
-      var status = sensorStatus(props.sensor, props.value);
+      var status = readingStatus(props.value);
 
       L.circleMarker([coords[1], coords[0]], {
         radius: 7,
@@ -236,10 +224,9 @@
   }
 
   function loadStreams() {
-    var sensor = sensorSelect.value;
-    setStatus("Loading " + sensor.replace(/_/g, " ") + "…");
+    setStatus("Loading…");
 
-    return getJSON(SENSOR_DATA_URL + "?sensor=" + encodeURIComponent(sensor))
+    return getJSON(SENSOR_DATA_URL)
       .then(function (collection) {
         drawStreams(collection);
         setStatus(collection.features.length + " monitoring points");
@@ -250,8 +237,6 @@
         setStatus("Stream data unavailable");
       });
   }
-
-  sensorSelect.addEventListener("change", loadStreams);
 
   // --- legend ---------------------------------------------------------------
 
@@ -267,7 +252,7 @@
     div.innerHTML =
       "<h4>AMD severity index</h4>" + rows +
       '<div class="legend-row"><i style="background:' + NO_DATA_COLOR + '"></i>no data</div>' +
-      '<div class="legend-note">Illustrative index, not a regulatory dataset.</div>';
+      '<div class="legend-note">Sample data, not measurements.</div>';
     return div;
   };
 

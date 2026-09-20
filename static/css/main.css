@@ -40,7 +40,7 @@
   --stain: #b8431a;      /* the AMD stain — 4.99:1 as text */
   --stain-fill: #d4501f;
 
-  /* pH severity ramp — single hue, neutral → most acidic */
+  /* AMD severity ramp — single hue, neutral → most affected */
   --acid-1:#ec9474; --acid-2:#dd6e43; --acid-3:#c74f1a; --acid-4:#a63c07; --acid-5:#822e05;
 
   /* Status — always with an icon + text label, never colour alone */
