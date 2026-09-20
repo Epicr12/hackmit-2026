@@ -1,10 +1,202 @@
 {% extends "base.html" %}
 
-{% block title %}Am I at risk?{% endblock %}
+{% block title %}Risk assessment{% endblock %}
+{% block body_class %}page--app{% endblock %}
 
 {% block content %}
+<section class="block">
+  <div class="wrap">
+    <p class="eyebrow">Flexible pipeline</p>
+    <h1>Risk assessment agent</h1>
+    <p class="lede">Paste any website data as JSON — or load a registered source —
+      and get a simple risk prediction. Scorers, sources, and schemas are pluggable.</p>
+  </div>
+</section>
 
-<h1>Am I at risk?</h1>
-<p>Placeholder — location-based risk check.</p>
+<section class="block block--tint">
+  <div class="wrap">
+    <form id="risk-form" class="risk-form" action="{% url 'risk_assess' %}" method="post">
+      {% csrf_token %}
+      <div class="toolbar">
+        <label>
+          Scorer
+          <select id="scorer" name="scorer">
+            {% for name in capabilities.scorers %}
+              <option value="{{ name }}" {% if name == capabilities.default_scorer %}selected{% endif %}>{{ name }}</option>
+            {% endfor %}
+          </select>
+        </label>
+        <label>
+          Schema
+          <select id="schema" name="schema">
+            <option value="">(none)</option>
+            {% for name in capabilities.schemas %}
+              <option value="{{ name }}">{{ name }}</option>
+            {% endfor %}
+          </select>
+        </label>
+        <label>
+          Source
+          <select id="source" name="source">
+            <option value="">(payload only)</option>
+            {% for name in capabilities.sources %}
+              <option value="{{ name }}">{{ name }}</option>
+            {% endfor %}
+          </select>
+        </label>
+        <button type="button" class="btn" id="load-sample">Load sample JSON</button>
+        <button type="submit" class="btn btn--primary">Assess risk</button>
+      </div>
 
+      <label class="risk-label" for="payload">Website data (JSON)</label>
+      <textarea id="payload" class="risk-payload mono" rows="16" spellcheck="false"
+                aria-describedby="payload-hint">{{ sample_payload_json }}</textarea>
+      <p id="payload-hint" class="muted">No fixed field names required. Use whatever keys your site already has.
+        Optional conventions like <span class="mono">risk_score</span>, <span class="mono">severity</span>,
+        or <span class="mono">hazard</span> get extra weight in the default heuristic.</p>
+    </form>
+  </div>
+</section>
+
+<section class="block">
+  <div class="wrap">
+    <div id="risk-error" class="map-error" role="alert"></div>
+    <div id="risk-result" class="risk-result" hidden>
+      <div class="stats">
+        <div class="stat">
+          <p class="stat__label">Risk score</p>
+          <div class="stat__value" id="out-score">—</div>
+          <p class="stat__source">0–100 heuristic scale (replaceable)</p>
+        </div>
+        <div class="stat">
+          <p class="stat__label">Level</p>
+          <div class="stat__value"><span class="badge" id="out-badge">—</span></div>
+          <p class="stat__source" id="out-summary"></p>
+        </div>
+      </div>
+      <div class="meter" aria-hidden="true" style="margin: var(--s5) 0">
+        <div class="meter__fill" id="out-meter" style="width:0%"></div>
+      </div>
+      <div class="table-wrap">
+        <table class="table">
+          <thead>
+            <tr><th>Factor</th><th>Contribution</th><th>Detail</th></tr>
+          </thead>
+          <tbody id="out-factors"></tbody>
+        </table>
+      </div>
+      <pre id="out-raw" class="risk-raw mono muted" hidden></pre>
+      <p><button type="button" class="btn" id="toggle-raw">Show raw JSON</button></p>
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function () {
+  const form = document.getElementById("risk-form");
+  const payloadEl = document.getElementById("payload");
+  const sample = {{ sample_payload_json|safe }};
+  const csrf = form.querySelector("[name=csrfmiddlewaretoken]").value;
+  const errEl = document.getElementById("risk-error");
+  const resultEl = document.getElementById("risk-result");
+
+  document.getElementById("load-sample").addEventListener("click", function () {
+    payloadEl.value = JSON.stringify(sample, null, 2);
+  });
+
+  document.getElementById("toggle-raw").addEventListener("click", function () {
+    const raw = document.getElementById("out-raw");
+    const hidden = raw.hasAttribute("hidden");
+    if (hidden) raw.removeAttribute("hidden"); else raw.setAttribute("hidden", "");
+    this.textContent = hidden ? "Hide raw JSON" : "Show raw JSON";
+  });
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+    errEl.classList.remove("is-visible");
+    errEl.textContent = "";
+
+    let payload = null;
+    const text = payloadEl.value.trim();
+    const source = document.getElementById("source").value || null;
+    if (text) {
+      try {
+        payload = JSON.parse(text);
+      } catch (err) {
+        errEl.textContent = "Payload must be valid JSON.";
+        errEl.classList.add("is-visible");
+        return;
+      }
+    }
+    if (!payload && !source) {
+      errEl.textContent = "Provide JSON payload and/or choose a source.";
+      errEl.classList.add("is-visible");
+      return;
+    }
+
+    const body = {
+      payload: payload,
+      source: source,
+      schema: document.getElementById("schema").value || null,
+      scorer: document.getElementById("scorer").value || null,
+    };
+
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": csrf,
+        },
+        body: JSON.stringify(body),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        errEl.textContent = data.error || ("Request failed (" + res.status + ")");
+        errEl.classList.add("is-visible");
+        return;
+      }
+      renderResult(data);
+    } catch (err) {
+      errEl.textContent = "Network error: " + err;
+      errEl.classList.add("is-visible");
+    }
+  });
+
+  function renderResult(data) {
+    const a = data.assessment || {};
+    resultEl.hidden = false;
+    document.getElementById("out-score").textContent =
+      (a.score != null ? a.score : "—");
+    const badge = document.getElementById("out-badge");
+    badge.textContent = a.level_label || a.level || "—";
+    badge.className = "badge badge--" + (a.level || "good");
+    document.getElementById("out-summary").textContent = a.summary || "";
+    document.getElementById("out-meter").style.width =
+      Math.max(0, Math.min(100, Number(a.score) || 0)) + "%";
+
+    const tbody = document.getElementById("out-factors");
+    tbody.innerHTML = "";
+    (a.factors || []).forEach(function (f) {
+      const tr = document.createElement("tr");
+      tr.innerHTML =
+        "<td class='mono'>" + escapeHtml(f.path) + "</td>" +
+        "<td class='num'>" + escapeHtml(String(f.contribution)) + "</td>" +
+        "<td>" + escapeHtml(f.detail) + "</td>";
+      tbody.appendChild(tr);
+    });
+    document.getElementById("out-raw").textContent = JSON.stringify(data, null, 2);
+  }
+
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+})();
+</script>
 {% endblock %}
